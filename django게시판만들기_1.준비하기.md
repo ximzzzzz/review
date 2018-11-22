@@ -48,7 +48,7 @@ pyenv global 3.6.1 #전역 버전으로 설정
 
    pyenv virtualenv <파이썬 버전> <설정할 가상환경 이름>
 
-- 가상환경 활성화
+- 가상환경 활성화 #이 순서에서 활성화 할필요없음
 
   ```bash
   pyenv activate 가상환경이름
@@ -77,6 +77,10 @@ pyenv global 3.6.1 #전역 버전으로 설정
 - django 앱생성
 
   django-admin startapp 앱이름
+
+- 프로젝트 폴더에 들어가서 로컬로 가상환경을 activate 해야함
+
+  pyenv local today_1113
 
 - django server 실행
 

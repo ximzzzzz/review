@@ -8,6 +8,21 @@
 
 ​	만들었던 app폴더 안에 templates 폴더를 만들고 `html문서`를 저장한다
 
+
+
+#### 1.5 (app 내에) models.py
+
+```python
+class Post(models.Model):
+  	 title = models.CharField(max_length=50) #컬럼 두개 추가
+   	 content = models.CharField(max_length=100)
+    
+def __str__(self): #오브젝트 출력할때 타이틀로 출력하도록 재설정
+        return self.title
+```
+
+​	
+
 #### 2. urls.py 
 
 - app 내의 views 설정하기
@@ -23,6 +38,33 @@
       path('whoami', views.whoami), #쉼표에 주의한다 ㅅㅂ
   ]
   ```
+
+
+
+#### 2.5 DB와 model 사이에 sql로 변환할 수 있또록 migration 해줘야함
+
+```python
+python manage.py makemigrations #설계도 작성
+python manage.py migrate #실제로 번역하기
+```
+
+
+
+#### 2.6 (app내의) admin.py 에서 만들었던 model을 등록하기
+
+```python
+from .models import Post #현재 폴더에 있는 models.py 에서 Post 클래스 추가
+admin.site.register(Post)
+
+```
+
+#### 2.7 admin페이지에서 확인을 위해 superuser 생성
+
+```bash
+python manage.py createsuperuser
+```
+
+
 
 #### 3.views.py
 
